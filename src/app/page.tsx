@@ -21,10 +21,10 @@ export default function HomePage() {
             Bridge Your Brand to the World
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
-            At GG Media, we connect brands with audiences through powerful
-            digital media buying. From precision targeting to global scale, we
-            help you get the right message, in the right place, at the right
-            time.
+            At Global Gate Media, we connect brands with audiences through
+            powerful digital media buying. From precision targeting to global
+            scale, we help you get the right message, in the right place, at the
+            right time.
           </p>
           <SignInButton mode="modal">
             <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
@@ -47,8 +47,8 @@ export default function HomePage() {
                 About Us
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                We are GG Media, a digital media buying agency born at the
-                intersection of creativity, technology, and strategy.
+                We are Global Gate Media, a digital media buying agency born at
+                the intersection of creativity, technology, and strategy.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Inspired by the Golden Gate — a symbol of connection — we bridge
@@ -193,7 +193,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Why Choose GG Media?
+              Why Choose Global Gate Media?
             </h2>
           </div>
 
@@ -249,7 +249,7 @@ export default function HomePage() {
           <div className="text-center mt-12">
             <SignInButton mode="modal">
               <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
-                Choose GG Media
+                Choose Global Gate Media
                 <ArrowRight className="w-4 h-4" />
               </button>
             </SignInButton>
@@ -353,7 +353,7 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-2xl font-bold mb-4">🌉 GG Media</h3>
+              <h3 className="text-2xl font-bold mb-4">🌉 Global Gate Media</h3>
               <p className="text-gray-400 mb-4">
                 Bridge Your Brand to the World
               </p>
@@ -365,7 +365,7 @@ export default function HomePage() {
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">
-                GG Media Agency, LLC
+                Global Gate Media Agency, LLC
               </h4>
               <p className="text-gray-400">
                 Connecting brands with audiences through powerful digital media

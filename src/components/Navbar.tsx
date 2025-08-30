@@ -19,7 +19,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-bold text-gray-800 hover:text-slate-700 transition-colors"
         >
-          🌉 GG Media
+          🌉 Global Gate Media
         </Link>
         <div className="flex gap-6 items-center">
           <nav className="hidden md:flex gap-6">
@@ -50,7 +50,7 @@ export default function Navbar() {
           </nav>
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg  transition-colors">
                 Sign In
               </button>
             </SignInButton>

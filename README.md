@@ -1,6 +1,6 @@
-# 🌉 GG Media - Digital Media Buying Agency
+# 🌉 Global Gate Media - Digital Media Buying Agency
 
-A professional website for GG Media, a digital media buying agency that bridges brands with audiences through powerful campaigns.
+A professional website for Global Gate Media, a digital media buying agency that bridges brands with audiences through powerful campaigns.
 
 ## 🚀 Features
 
@@ -122,7 +122,7 @@ This project is licensed under the MIT License.
 
 ## 📞 Contact
 
-**GG Media Agency, LLC**
+**Global Gate Media Agency, LLC**
 - 📍 San Francisco, CA
 - 🌐 ggmedia.agency
 - ✉️ hello@ggmedia.agency
