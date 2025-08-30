@@ -13,18 +13,44 @@ export default function Navbar() {
   const { user } = useUser();
 
   return (
-    <header className="p-4 border-b bg-white/80 backdrop-blur-sm">
+    <header className="p-4 border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
       <div className="flex justify-between items-center max-w-7xl mx-auto">
         <Link
           href="/"
-          className="text-xl font-bold text-gray-800 hover:text-gray-600 transition-colors"
+          className="text-2xl font-bold text-gray-800 hover:text-slate-700 transition-colors"
         >
-          Our App
+          🌉 GG Media
         </Link>
-        <div className="flex gap-4 items-center">
+        <div className="flex gap-6 items-center">
+          <nav className="hidden md:flex gap-6">
+            <Link
+              href="/#services"
+              className="text-gray-600 hover:text-slate-700 transition-colors"
+            >
+              Services
+            </Link>
+            <Link
+              href="/#case-studies"
+              className="text-gray-600 hover:text-slate-700 transition-colors"
+            >
+              Case Studies
+            </Link>
+            <Link
+              href="/dashboard"
+              className="text-gray-600 hover:text-slate-700 transition-colors"
+            >
+              Dashboard
+            </Link>
+            <Link
+              href="/contact"
+              className="text-gray-600 hover:text-slate-700 transition-colors"
+            >
+              Contact
+            </Link>
+          </nav>
           <SignedOut>
             <SignInButton mode="modal">
-              <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-4 rounded-lg transition-colors">
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
                 Sign In
               </button>
             </SignInButton>
