@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Global Gate Media - Bridge Your Brand to the World",
+  title: "Golden Gate Media - Bridge Your Brand to the World",
   description:
     "Digital media buying agency connecting brands with audiences through powerful campaigns. From precision targeting to global scale.",
   keywords:

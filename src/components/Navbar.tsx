@@ -20,7 +20,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-bold text-gray-800 hover:text-slate-700 transition-colors"
         >
-          🌉 Global Gate Media
+          🌉 Golden Gate Media
         </Link>
         <div className="flex gap-6 items-center">
           <nav className="hidden md:flex gap-6">

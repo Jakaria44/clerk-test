@@ -89,7 +89,7 @@ export default function ContactPage() {
           <div className="grid md:grid-cols-2 gap-8">
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                What services does Global Gate Media offer?
+                What services does Golden Gate Media offer?
               </h3>
               <p className="text-gray-600">
                 We specialize in digital media buying, programmatic advertising,
@@ -121,7 +121,7 @@ export default function ContactPage() {
 
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-3">
-                What makes Global Gate Media different?
+                What makes Golden Gate Media different?
               </h3>
               <p className="text-gray-600">
                 Our Golden Gate-inspired approach combines data-driven
