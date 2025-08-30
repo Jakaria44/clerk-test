@@ -3,6 +3,7 @@
 import Link from "next/link";
 import {
   SignInButton,
+  SignUpButton,
   SignedIn,
   SignedOut,
   UserButton,
@@ -49,11 +50,18 @@ export default function Navbar() {
             </Link>
           </nav>
           <SignedOut>
-            <SignInButton mode="modal">
-              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg  transition-colors">
-                Sign In
-              </button>
-            </SignInButton>
+            <div className="flex items-center gap-3">
+              <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
+                <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                  Sign In
+                </button>
+              </SignInButton>
+              <SignUpButton mode="modal" forceRedirectUrl={"/dashboard"}>
+                <button className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                  Sign Up
+                </button>
+              </SignUpButton>
+            </div>
           </SignedOut>
           <SignedIn>
             <div className="flex items-center gap-4">

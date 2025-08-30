@@ -365,7 +365,7 @@ export default function HomePage() {
             </div>
             <div>
               <h4 className="text-lg font-semibold mb-4">
-                Global Gate Media Agency, LLC
+                Global Gate Media, LLC
               </h4>
               <p className="text-gray-400">
                 Connecting brands with audiences through powerful digital media
