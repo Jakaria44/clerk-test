@@ -36,12 +36,14 @@ export default function Navbar() {
             >
               Case Studies
             </Link>
-            <Link
-              href="/dashboard"
-              className="text-gray-600 hover:text-slate-700 transition-colors"
-            >
-              Dashboard
-            </Link>
+            <SignedIn>
+              <Link
+                href="/dashboard"
+                className="text-gray-600 hover:text-slate-700 transition-colors"
+              >
+                Dashboard
+              </Link>
+            </SignedIn>
             <Link
               href="/contact"
               className="text-gray-600 hover:text-slate-700 transition-colors"
