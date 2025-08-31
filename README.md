@@ -40,27 +40,27 @@ A professional website for Golden Gate Media, a digital media buying agency that
 ## 📦 Installation
 
 1. Clone the repository:
-```bash
+\`\`\`bash
 git clone <repository-url>
 cd clerk-test
-```
+\`\`\`
 
 2. Install dependencies:
-```bash
+\`\`\`bash
 npm install
-```
+\`\`\`
 
 3. Set up environment variables:
 Create a `.env.local` file with your Clerk credentials:
-```env
+\`\`\`env
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_publishable_key
 CLERK_SECRET_KEY=your_secret_key
-```
+\`\`\`
 
 4. Run the development server:
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
 

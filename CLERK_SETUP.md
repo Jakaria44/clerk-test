@@ -4,7 +4,7 @@
 
 Create a `.env.local` file in your project root with the following variables:
 
-```bash
+\`\`\`bash
 # Clerk Environment Variables
 # Get these from your Clerk Dashboard: https://dashboard.clerk.com/
 NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_your_publishable_key_here
@@ -15,7 +15,7 @@ CLERK_SECRET_KEY=sk_test_your_secret_key_here
 # NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
 # NEXT_PUBLIC_CLERK_AFTER_SIGN_IN_URL=/
 # NEXT_PUBLIC_CLERK_AFTER_SIGN_UP_URL=/
-```
+\`\`\`
 
 ## Getting Your Clerk Keys
 
@@ -27,9 +27,9 @@ CLERK_SECRET_KEY=sk_test_your_secret_key_here
 
 ## Running the Application
 
-```bash
+\`\`\`bash
 npm run dev
-```
+\`\`\`
 
 ## What's Been Implemented
 
