@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import {
   SignInButton,
   SignUpButton,
@@ -12,45 +14,69 @@ import {
 
 export default function Navbar() {
   const { user } = useUser();
+  const pathname = usePathname();
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
+
+  // Close menu on route change
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [pathname]);
+
+  // Prevent background scroll when menu open
+  useEffect(() => {
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
+
+  const navItems = [
+    { href: "/#services", label: "Services" },
+    { href: "/#case-studies", label: "Case Studies" },
+    { href: "/dashboard", label: "Dashboard", authOnly: true },
+    { href: "/contact", label: "Contact" },
+  ];
 
   return (
-    <header className="p-4 border-b bg-white/80 backdrop-blur-sm sticky top-0 z-50">
-      <div className="flex justify-between items-center max-w-7xl mx-auto">
+    <header
+      className="p-4 border-neutral-200/60 border-b bg-white backdrop-blur-sm supports-[backdrop-filter]:bg-white/90 fixed top-0 z-50 w-full transition-all duration-300 ease-in-out"
+      role="banner"
+    >
+      {/* Desktop navbar */}
+      <div className="hidden md:flex justify-between items-center max-w-7xl mx-auto">
         <Link
           href="/"
           className="text-2xl font-bold text-gray-800 hover:text-slate-700 transition-colors"
         >
-          🌉 Golden Gate Media
+          Golden Gate Media
         </Link>
         <div className="flex gap-6 items-center">
-          <nav className="hidden md:flex gap-6">
-            <Link
-              href="/#services"
-              className="text-gray-600 hover:text-slate-700 transition-colors"
-            >
-              Services
-            </Link>
-            <Link
-              href="/#case-studies"
-              className="text-gray-600 hover:text-slate-700 transition-colors"
-            >
-              Case Studies
-            </Link>
-            <SignedIn>
-              <Link
-                href="/dashboard"
-                className="text-gray-600 hover:text-slate-700 transition-colors"
-              >
-                Dashboard
-              </Link>
-            </SignedIn>
-            <Link
-              href="/contact"
-              className="text-gray-600 hover:text-slate-700 transition-colors"
-            >
-              Contact
-            </Link>
+          <nav className="flex gap-6" aria-label="Main navigation">
+            {navItems.map(({ href, label, authOnly }) =>
+              authOnly ? (
+                <SignedIn key={href}>
+                  <Link
+                    href={href}
+                    className="text-gray-600 hover:text-slate-700 transition-colors"
+                  >
+                    {label}
+                  </Link>
+                </SignedIn>
+              ) : (
+                <Link
+                  key={href}
+                  href={href}
+                  className="text-gray-600 hover:text-slate-700 transition-colors"
+                >
+                  {label}
+                </Link>
+              )
+            )}
           </nav>
+
+          {/* Auth Buttons */}
           <SignedOut>
             <div className="flex items-center gap-3">
               <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
@@ -65,9 +91,10 @@ export default function Navbar() {
               </SignUpButton>
             </div>
           </SignedOut>
+
           <SignedIn>
             <div className="flex items-center gap-4">
-              <div className="text-right hidden sm:block">
+              <div className="hidden sm:block text-right">
                 <div className="text-sm font-semibold text-gray-800">
                   {user?.firstName && user?.lastName
                     ? `${user.firstName} ${user.lastName}`
@@ -89,6 +116,119 @@ export default function Navbar() {
           </SignedIn>
         </div>
       </div>
+
+      {/* Mobile navbar */}
+      <div className="flex md:hidden items-center justify-between">
+        <Link
+          href="/"
+          className="text-2xl font-bold text-gray-800 hover:text-slate-700 transition-colors"
+        >
+          GG Media
+        </Link>
+        <div className="flex items-center gap-3">
+          <SignedIn>
+            <Link
+              href="/dashboard"
+              className="text-gray-600 hover:text-slate-700 transition-colors"
+            >
+              Dashboard
+            </Link>
+          </SignedIn>
+          <button
+            onClick={toggleMobileMenu}
+            aria-label="Toggle mobile menu"
+            className="p-2"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              {isMobileMenuOpen ? (
+                <path d="M6 18L18 6M6 6l12 12" />
+              ) : (
+                <path d="M4 6h16M4 12h16M4 18h16" />
+              )}
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile dropdown */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-neutral-200/60 bg-white">
+          <nav className="px-4 py-6 space-y-4" aria-label="Mobile navigation">
+            {navItems.map(({ href, label, authOnly }) =>
+              authOnly ? (
+                <SignedIn key={href}>
+                  <Link
+                    href={href}
+                    className="block text-lg font-medium transition-opacity hover:opacity-70 border-b border-neutral-200/60 pb-4"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {label}
+                  </Link>
+                </SignedIn>
+              ) : (
+                <Link
+                  key={href}
+                  href={href}
+                  className="block text-lg font-medium transition-opacity hover:opacity-70 border-b border-neutral-200/60 pb-4"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {label}
+                </Link>
+              )
+            )}
+
+            {/* Auth section */}
+            <div className="pt-6 space-y-3">
+              <SignedOut>
+                <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
+                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                    Sign In
+                  </button>
+                </SignInButton>
+                <SignUpButton mode="modal" forceRedirectUrl={"/dashboard"}>
+                  <button className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
+                    Sign Up
+                  </button>
+                </SignUpButton>
+              </SignedOut>
+
+              <SignedIn>
+                <div className="flex items-center gap-4 border-t border-neutral-200/60 pt-4">
+                  <div className="flex items-center gap-3">
+                    <UserButton
+                      appearance={{
+                        elements: {
+                          avatarBox: "w-10 h-10 rounded-full",
+                          userButtonPopoverCard:
+                            "shadow-lg border border-gray-200",
+                        },
+                      }}
+                    />
+                    <div className="text-sm">
+                      <div className="font-semibold text-gray-800">
+                        {user?.firstName && user?.lastName
+                          ? `${user.firstName} ${user.lastName}`
+                          : user?.fullName || "User"}
+                      </div>
+                      <div className="text-xs text-gray-500">
+                        {user?.primaryEmailAddress?.emailAddress}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </SignedIn>
+            </div>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

@@ -15,21 +15,21 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen flex items-center py-20 px-4">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-8">
+      <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen flex items-center py-16 sm:py-20 px-4">
+        <div className="max-w-7xl mx-auto text-left sm:text-center">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-gray-900 mb-6 sm:mb-8 px-4 sm:px-0">
             Bridge Your Brand to the World
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-5xl mx-auto leading-relaxed">
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-8 sm:mb-12 max-w-5xl sm:mx-auto leading-relaxed px-4 sm:px-0">
             At Golden Gate Media, we connect brands with audiences through
             powerful digital media buying. From precision targeting to global
             scale, we help you get the right message, in the right place, at the
             right time.
           </p>
           <SignInButton mode="modal">
-            <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
+            <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 sm:py-4 px-6 sm:px-8 rounded-lg text-base sm:text-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
               👉 Let's Talk Media
-              <ArrowRight className="w-5 h-5" />
+              <ArrowRight className="w-4 sm:w-5 h-4 sm:h-5" />
             </button>
           </SignInButton>
         </div>
@@ -38,19 +38,19 @@ export default function HomePage() {
       {/* About Us Section */}
       <section
         id="about"
-        className="min-h-screen flex items-center py-20 px-4 bg-white"
+        className="min-h-screen flex items-center py-16 sm:py-20 px-4 bg-white"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 sm:mb-6">
                 About Us
               </h2>
-              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 mb-4 sm:mb-6 leading-relaxed">
                 We are Golden Gate Media, a digital media buying agency born at
                 the intersection of creativity, technology, and strategy.
               </p>
-              <p className="text-lg text-gray-600 leading-relaxed">
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
                 Inspired by the Golden Gate — a symbol of connection — we bridge
                 the gap between your brand and the audiences that matter most.
                 Whether you're an emerging startup or an established enterprise,
@@ -58,10 +58,10 @@ export default function HomePage() {
                 impact.
               </p>
             </div>
-            <div className="bg-gradient-to-br from-slate-100 to-blue-50 p-8 rounded-2xl">
+            <div className="bg-gradient-to-br from-slate-100 to-blue-50 p-6 sm:p-8 rounded-2xl">
               <div className="text-center">
-                <div className="text-6xl mb-4">🌉</div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                <div className="text-4xl sm:text-6xl mb-4">🌉</div>
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2">
                   Golden Gate Inspired
                 </h3>
                 <p className="text-gray-600">
@@ -69,7 +69,7 @@ export default function HomePage() {
                 </p>
               </div>
             </div>
-            <div className="text-center mt-12">
+            <div className="text-left sm:text-center mt-12 px-4 sm:px-0">
               <SignInButton mode="modal">
                 <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
                   Start Your Journey
@@ -84,26 +84,26 @@ export default function HomePage() {
       {/* Services Section */}
       <section
         id="services"
-        className="min-h-screen flex items-center py-20 px-4 bg-gray-50"
+        className="min-h-screen flex items-center py-16 sm:py-20 px-4 bg-gray-50"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-left sm:text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 px-4 sm:px-0">
               Our Services
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-lg sm:text-xl text-gray-600 max-w-3xl sm:mx-auto px-4 sm:px-0">
               Comprehensive digital media solutions designed to maximize your
               ROI and grow your impact
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Service 1 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                 <Target className="w-6 h-6 text-slate-700" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Media Buying & Planning
               </h3>
               <ul className="space-y-2 text-gray-600">
@@ -116,11 +116,11 @@ export default function HomePage() {
             </div>
 
             {/* Service 2 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                 <BarChart3 className="w-6 h-6 text-green-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Programmatic Advertising
               </h3>
               <ul className="space-y-2 text-gray-600">
@@ -130,11 +130,11 @@ export default function HomePage() {
             </div>
 
             {/* Service 3 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                 <Users className="w-6 h-6 text-purple-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Social Media Campaigns
               </h3>
               <ul className="space-y-2 text-gray-600">
@@ -148,11 +148,11 @@ export default function HomePage() {
             </div>
 
             {/* Service 4 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                 <Palette className="w-6 h-6 text-orange-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Creative Optimization
               </h3>
               <ul className="space-y-2 text-gray-600">
@@ -164,11 +164,11 @@ export default function HomePage() {
             </div>
 
             {/* Service 5 */}
-            <div className="bg-white p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-6">
+            <div className="bg-white p-6 sm:p-8 rounded-xl shadow-sm hover:shadow-md transition-shadow">
+              <div className="w-12 h-12 bg-red-100 rounded-lg flex items-center justify-center mb-4 sm:mb-6">
                 <TrendingUp className="w-6 h-6 text-red-600" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">
                 Performance Tracking
               </h3>
               <ul className="space-y-2 text-gray-600">
@@ -177,7 +177,7 @@ export default function HomePage() {
               </ul>
             </div>
           </div>
-          <div className="text-center mt-12">
+          <div className="text-left sm:text-center mt-8 sm:mt-12 px-4 sm:px-0">
             <SignInButton mode="modal">
               <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
                 Explore Our Services
@@ -191,15 +191,15 @@ export default function HomePage() {
       {/* Why Choose Us Section */}
       <section className="min-h-screen flex items-center py-20 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-left sm:text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 px-4 sm:px-0">
               Why Choose Golden Gate Media?
             </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-left sm:text-center">
+              <div className="w-16 h-16 bg-slate-100 rounded-full flex items-center justify-center sm:mx-auto mb-4">
                 <Target className="w-8 h-8 text-slate-700" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -210,8 +210,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-left sm:text-center">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center sm:mx-auto mb-4">
                 <Globe className="w-8 h-8 text-green-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -222,8 +222,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-left sm:text-center">
+              <div className="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center sm:mx-auto mb-4">
                 <BarChart3 className="w-8 h-8 text-purple-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -234,8 +234,8 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="text-center">
-              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="text-left sm:text-center">
+              <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center sm:mx-auto mb-4">
                 <Palette className="w-8 h-8 text-orange-600" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">
@@ -246,7 +246,7 @@ export default function HomePage() {
               </p>
             </div>
           </div>
-          <div className="text-center mt-12">
+          <div className="text-left sm:text-center mt-12 px-4 sm:px-0">
             <SignInButton mode="modal">
               <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
                 Choose Golden Gate Media
@@ -263,11 +263,11 @@ export default function HomePage() {
         className="min-h-screen flex items-center py-20 px-4 bg-gray-50"
       >
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-left sm:text-center mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4 px-4 sm:px-0">
               Success Stories
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-lg sm:text-xl text-gray-600 px-4 sm:px-0">
               Real results from real campaigns
             </p>
           </div>
@@ -319,7 +319,7 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <div className="text-center mt-12">
+          <div className="text-left sm:text-center mt-12 px-4 sm:px-0">
             <SignInButton mode="modal">
               <button className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-lg">
                 See Your Success Story
@@ -332,11 +332,11 @@ export default function HomePage() {
 
       {/* CTA Section */}
       <section className="py-20 px-4 bg-gradient-to-r from-slate-700 to-slate-800">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="max-w-4xl mx-auto text-left sm:text-center">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 px-4 sm:px-0">
             Ready to Scale Smarter?
           </h2>
-          <p className="text-xl text-slate-200 mb-8">
+          <p className="text-lg sm:text-xl text-slate-200 mb-8 px-4 sm:px-0">
             Let's plan your next campaign and unlock growth.
           </p>
           <SignInButton mode="modal">
