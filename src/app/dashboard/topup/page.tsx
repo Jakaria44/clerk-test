@@ -9,6 +9,7 @@ import {
   AlertCircle,
 } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 import { useUser } from "@clerk/nextjs";
 
 interface PaymentMethod {
@@ -163,7 +164,19 @@ export default function TopUpPage() {
                         className="sr-only"
                       />
                       <div className="flex items-start justify-between mb-3">
-                        <span className="text-3xl">{method.icon}</span>
+                        <div className="w-12 h-12 flex items-center justify-center">
+                          {method.icon.startsWith("/") ? (
+                            <Image
+                              src={method.icon}
+                              alt={`${method.name} logo`}
+                              width={48}
+                              height={48}
+                              className="object-contain"
+                            />
+                          ) : (
+                            <span className="text-3xl">{method.icon}</span>
+                          )}
+                        </div>
                         <div
                           className={`w-5 h-5 rounded-full border-2 ${
                             selectedMethod === method.id
