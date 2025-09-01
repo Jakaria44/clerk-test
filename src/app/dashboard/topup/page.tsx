@@ -28,7 +28,7 @@ export default function TopUpPage() {
   const [loading, setLoading] = useState(true);
   const [processing, setProcessing] = useState(false);
 
-  const quickAmounts = [50, 100, 250, 500, 1000];
+  const quickAmounts = [500, 1000, 2000, 5000, 10000];
 
   useEffect(() => {
     fetchPaymentMethods();
@@ -121,7 +121,7 @@ export default function TopUpPage() {
                   onChange={(e) => setAmount(e.target.value)}
                   placeholder="0.00"
                   min="1"
-                  max="10000"
+                  max="10000000"
                   className="w-full px-4 py-3 text-lg border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
                 />
               </div>
@@ -150,10 +150,10 @@ export default function TopUpPage() {
                 Select Payment Method
               </h2>
 
-              <div className="space-y-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {paymentMethods.map((method) => (
                   <div key={method.id}>
-                    <label className="flex items-center p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-blue-300 hover:bg-blue-50 transition-colors">
+                    <label className="flex flex-col p-4 border border-gray-200 rounded-lg cursor-pointer hover:border-blue-300 hover:bg-blue-50 transition-colors h-full">
                       <input
                         type="radio"
                         name="paymentMethod"
@@ -162,35 +162,35 @@ export default function TopUpPage() {
                         onChange={(e) => setSelectedMethod(e.target.value)}
                         className="sr-only"
                       />
-                      <div
-                        className={`w-4 h-4 rounded-full border-2 mr-4 ${
-                          selectedMethod === method.id
-                            ? "border-blue-600 bg-blue-600"
-                            : "border-gray-300"
-                        }`}
-                      >
-                        {selectedMethod === method.id && (
-                          <div className="w-2 h-2 bg-white rounded-full mx-auto mt-0.5"></div>
-                        )}
+                      <div className="flex items-start justify-between mb-3">
+                        <span className="text-3xl">{method.icon}</span>
+                        <div
+                          className={`w-5 h-5 rounded-full border-2 ${
+                            selectedMethod === method.id
+                              ? "border-blue-600 bg-blue-600"
+                              : "border-gray-300"
+                          }`}
+                        >
+                          {selectedMethod === method.id && (
+                            <div className="w-2.5 h-2.5 bg-white rounded-full mx-auto mt-0.5"></div>
+                          )}
+                        </div>
                       </div>
-                      <div className="flex items-center gap-3 flex-1">
-                        <span className="text-2xl">{method.icon}</span>
-                        <div className="flex-1">
-                          <div className="font-medium text-gray-900">
-                            {method.name}
-                          </div>
-                          <div className="text-sm text-gray-600">
-                            {method.description}
-                          </div>
-                          <div className="flex gap-4 mt-1">
-                            <span className="text-xs text-gray-500 flex items-center gap-1">
-                              <Clock className="w-3 h-3" />
-                              {method.processing_time}
-                            </span>
-                            <span className="text-xs text-gray-500">
-                              Fee: {method.fee}
-                            </span>
-                          </div>
+                      <div className="flex-1">
+                        <div className="font-medium text-gray-900 mb-2">
+                          {method.name}
+                        </div>
+                        <div className="text-sm text-gray-600 mb-3">
+                          {method.description}
+                        </div>
+                        <div className="space-y-1">
+                          <span className="text-xs text-gray-500 flex items-center gap-1">
+                            <Clock className="w-3 h-3" />
+                            {method.processing_time}
+                          </span>
+                          <span className="text-xs text-gray-500 block">
+                            Fee: {method.fee}
+                          </span>
                         </div>
                       </div>
                     </label>
