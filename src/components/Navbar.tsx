@@ -134,6 +134,14 @@ export default function Navbar() {
               Dashboard
             </Link>
           </SignedIn>
+          <SignedOut>
+            <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
+                Sign In
+              </button>
+            </SignInButton>
+          </SignedOut>
+
           <button
             onClick={toggleMobileMenu}
             aria-label="Toggle mobile menu"
