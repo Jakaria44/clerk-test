@@ -8,20 +8,30 @@ export default clerkMiddleware((auth, req: NextRequest) => {
 
   // Handle dashboard subdomain
   if (hostname === "dash.ggmedia.app" || hostname.startsWith("dash.")) {
-    // If we're on the dashboard subdomain, rewrite to /dashboard routes
-    if (url.pathname === "/") {
-      url.pathname = "/dashboard";
-      return NextResponse.rewrite(url);
+    // Define dashboard-specific routes
+    const dashboardRoutes = ["/", "/topup"];
+    
+    // If we're on a dashboard route, rewrite to /dashboard path
+    if (dashboardRoutes.includes(url.pathname)) {
+      if (url.pathname === "/") {
+        url.pathname = "/dashboard";
+        return NextResponse.rewrite(url);
+      } else {
+        url.pathname = `/dashboard${url.pathname}`;
+        return NextResponse.rewrite(url);
+      }
     }
-
-    // For other paths on dashboard subdomain, prefix with /dashboard
+    
+    // For non-dashboard routes on dashboard subdomain, redirect to main domain
     if (
       !url.pathname.startsWith("/dashboard") &&
       !url.pathname.startsWith("/_next") &&
-      !url.pathname.startsWith("/api")
+      !url.pathname.startsWith("/api") &&
+      !dashboardRoutes.includes(url.pathname)
     ) {
-      url.pathname = `/dashboard${url.pathname}`;
-      return NextResponse.rewrite(url);
+      const mainDomainUrl = new URL(url);
+      mainDomainUrl.hostname = "ggmedia.app";
+      return NextResponse.redirect(mainDomainUrl);
     }
   }
 

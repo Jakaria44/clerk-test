@@ -41,6 +41,24 @@ export default function Navbar() {
     return `/dashboard${path}`;
   };
 
+  // Helper function to get the correct main domain URL
+  const getMainDomainUrl = (path = "") => {
+    if (typeof window !== "undefined") {
+      const currentHost = window.location.hostname;
+      // If we're on dashboard subdomain, redirect to main domain
+      if (
+        currentHost.includes("dash.ggmedia.app") ||
+        currentHost.startsWith("dash.")
+      ) {
+        return `https://ggmedia.app${path}`;
+      }
+      // If we're already on main domain, use relative paths
+      return path;
+    }
+    // Server-side fallback
+    return path;
+  };
+
   // Close menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -55,10 +73,10 @@ export default function Navbar() {
   }, [isMobileMenuOpen]);
 
   const navItems = [
-    { href: "/#services", label: "Services" },
-    { href: "/#case-studies", label: "Case Studies" },
+    { href: getMainDomainUrl("/#services"), label: "Services" },
+    { href: getMainDomainUrl("/#case-studies"), label: "Case Studies" },
     { href: getDashboardUrl(), label: "Dashboard", authOnly: true },
-    { href: "/contact", label: "Contact" },
+    { href: getMainDomainUrl("/contact"), label: "Contact" },
   ];
 
   return (
