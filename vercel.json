@@ -1,5 +1,4 @@
 {
-  "domains": ["ggmedia.app", "dash.ggmedia.app"],
   "functions": {
     "src/middleware.ts": {
       "maxDuration": 10
