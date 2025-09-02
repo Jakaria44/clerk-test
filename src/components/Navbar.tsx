@@ -19,6 +19,28 @@ export default function Navbar() {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((prev) => !prev);
 
+  // Helper function to get the correct dashboard URL
+  const getDashboardUrl = (path = "") => {
+    if (typeof window !== "undefined") {
+      const currentHost = window.location.hostname;
+      // If we're already on dashboard subdomain, use relative paths
+      if (
+        currentHost.includes("dash.ggmedia.app") ||
+        currentHost.startsWith("dash.")
+      ) {
+        return path || "/";
+      }
+      // If we're on main domain or localhost, redirect to dashboard subdomain
+      if (currentHost.includes("ggmedia.app")) {
+        return `https://dash.ggmedia.app${path}`;
+      }
+      // For local development, use relative paths
+      return `/dashboard${path}`;
+    }
+    // Server-side fallback
+    return `/dashboard${path}`;
+  };
+
   // Close menu on route change
   useEffect(() => {
     setIsMobileMenuOpen(false);
@@ -35,7 +57,7 @@ export default function Navbar() {
   const navItems = [
     { href: "/#services", label: "Services" },
     { href: "/#case-studies", label: "Case Studies" },
-    { href: "/dashboard", label: "Dashboard", authOnly: true },
+    { href: getDashboardUrl(), label: "Dashboard", authOnly: true },
     { href: "/contact", label: "Contact" },
   ];
 
@@ -79,12 +101,12 @@ export default function Navbar() {
           {/* Auth Buttons */}
           <SignedOut>
             <div className="flex items-center gap-3">
-              <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
+              <SignInButton mode="modal" forceRedirectUrl={getDashboardUrl()}>
                 <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
                   Sign In
                 </button>
               </SignInButton>
-              <SignUpButton mode="modal" forceRedirectUrl={"/dashboard"}>
+              <SignUpButton mode="modal" forceRedirectUrl={getDashboardUrl()}>
                 <button className="bg-gray-600 hover:bg-gray-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
                   Sign Up
                 </button>
@@ -128,14 +150,14 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <SignedIn>
             <Link
-              href="/dashboard"
+              href={getDashboardUrl()}
               className="text-gray-600 hover:text-slate-700 transition-colors"
             >
               Dashboard
             </Link>
           </SignedIn>
           <SignedOut>
-            <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
+            <SignInButton mode="modal" forceRedirectUrl={getDashboardUrl()}>
               <button className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2 px-6 rounded-lg transition-colors">
                 Sign In
               </button>
@@ -196,12 +218,12 @@ export default function Navbar() {
             {/* Auth section */}
             <div className="pt-6 space-y-3">
               <SignedOut>
-                <SignInButton mode="modal" forceRedirectUrl={"/dashboard"}>
+                <SignInButton mode="modal" forceRedirectUrl={getDashboardUrl()}>
                   <button className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
                     Sign In
                   </button>
                 </SignInButton>
-                <SignUpButton mode="modal" forceRedirectUrl={"/dashboard"}>
+                <SignUpButton mode="modal" forceRedirectUrl={getDashboardUrl()}>
                   <button className="w-full bg-gray-600 hover:bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors">
                     Sign Up
                   </button>

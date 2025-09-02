@@ -1,0 +1,52 @@
+{
+  "domains": ["ggmedia.app", "dash.ggmedia.app"],
+  "functions": {
+    "src/middleware.ts": {
+      "maxDuration": 10
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/dashboard/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "dash.ggmedia.app"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/dashboard/:path*",
+      "destination": "https://dash.ggmedia.app/:path*",
+      "permanent": true,
+      "has": [
+        {
+          "type": "host",
+          "value": "ggmedia.app"
+        }
+      ]
+    }
+  ]
+}

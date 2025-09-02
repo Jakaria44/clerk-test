@@ -115,7 +115,7 @@ export default async function DashboardPage() {
             </div>
             <div className="space-y-4">
               <Link
-                href="/dashboard/topup"
+                href="/topup"
                 className="flex items-center justify-between p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors group"
               >
                 <div className="flex items-center gap-3">
