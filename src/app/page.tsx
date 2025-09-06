@@ -10,10 +10,12 @@ import {
   Award,
 } from "lucide-react";
 import { SignInButton } from "@clerk/nextjs";
+import Navbar from "@/components/Navbar";
 
 export default function HomePage() {
   return (
     <div className="min-h-screen">
+      <Navbar />
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-50 via-white to-blue-50 min-h-screen flex items-center py-16 sm:py-20 px-4">
         <div className="max-w-7xl mx-auto text-left sm:text-center">
