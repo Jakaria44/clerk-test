@@ -10,7 +10,7 @@ export default clerkMiddleware((auth, req: NextRequest) => {
   if (hostname === "dash.ggmedia.app" || hostname.startsWith("dash.")) {
     // Define dashboard-specific routes
     const dashboardRoutes = ["/", "/topup"];
-    
+
     // If we're on a dashboard route, rewrite to /dashboard path
     if (dashboardRoutes.includes(url.pathname)) {
       if (url.pathname === "/") {
@@ -21,7 +21,7 @@ export default clerkMiddleware((auth, req: NextRequest) => {
         return NextResponse.rewrite(url);
       }
     }
-    
+
     // For non-dashboard routes on dashboard subdomain, redirect to main domain
     if (
       !url.pathname.startsWith("/dashboard") &&

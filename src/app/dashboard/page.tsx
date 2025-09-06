@@ -11,8 +11,6 @@ import {
   Plus,
   Filter,
   Download,
-  Settings,
-  Bell,
   Wallet,
 } from "lucide-react";
 import Link from "next/link";
@@ -81,27 +79,7 @@ export default async function DashboardPage() {
   const userName = user?.firstName || user?.fullName || "User";
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto text-left sm:text-center">
-      {/* Dashboard Header */}
-      <div className="bg-white border-b px-6 py-4">
-        <div className="flex justify-between items-center">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Dashboard</h1>
-            <p className="text-gray-600">
-              Welcome back, {userName}! Here's your campaign overview.
-            </p>
-          </div>
-          <div className="flex items-center gap-4">
-            <button className="p-2 text-gray-400 hover:text-gray-600">
-              <Bell className="w-5 h-5" />
-            </button>
-            <button className="p-2 text-gray-400 hover:text-gray-600">
-              <Settings className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </div>
-
+    <div className="min-h-screen max-w-7xl mx-auto text-left sm:text-center pt-24">
       <div className="p-6">
         {/* Financial Management Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
